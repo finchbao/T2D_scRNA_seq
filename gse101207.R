@@ -361,3 +361,36 @@ p6= ggplot(t2d,aes(Ratio,Description)) +
   labs(title = "T2D")+ylab('')+scale_y_discrete(position = "right")+
   theme(plot.title = element_text(hjust = 0.5))
 p5/p6
+
+ob_inFang_GO = read.csv('ob_inFang_GO.csv')
+ob_overlap_GO = read.csv('ob_overlap_GO.csv')
+t2d_inFang_GO = read.csv('t2d_inFang_GO.csv')
+t2d_overlap_GO = read.csv('t2d_overlap_GO.csv')
+
+p7 = ggplot(ob_inFang_GO,aes(Ratio,Description)) +
+  geom_point() +
+  geom_point(aes(size=Counts,color=-Log.q.value.)) +
+  scale_color_gradient2(low="#3399CC",mid='#99CC99',high = "#FF9900",limits = c(1,80))+
+  labs(title = "OB")+ylab('')+scale_y_discrete(position = "right")+
+  theme(plot.title = element_text(hjust = 0.5))+scale_size(range = c(2,20),limits=c(1,150))
+
+p8 = ggplot(ob_overlap_GO,aes(Ratio,Description)) +
+  geom_point() +
+  geom_point(aes(size=Counts,color=-Log.q.value.)) +
+  scale_color_gradient2(low="#3399CC",mid='#99CC99',high = "#FF9900",limits = c(1,80))+
+  labs(title = "OB")+ylab('')+scale_y_discrete(position = "right")+
+  theme(plot.title = element_text(hjust = 0.5))+scale_size(range = c(2,20),limits=c(1,150))
+
+p9 = ggplot(t2d_inFang_GO,aes(Ratio,Description)) +
+  geom_point() +
+  geom_point(aes(size=Counts,color=-Log.q.value.)) +
+  scale_color_gradient2(low="#3399CC",mid='#99CC99',high = "#FF9900",limits = c(1,80))+
+  labs(title = "T2D")+ylab('')+scale_y_discrete(position = "right")+
+  theme(plot.title = element_text(hjust = 0.5))+scale_size(range = c(2,20),limits=c(1,150))
+
+p10 = ggplot(t2d_overlap_GO,aes(Ratio,Description)) +
+  geom_point() +
+  geom_point(aes(size=Counts,color=-Log.q.value.)) +
+  scale_color_gradient2(low="#3399CC",mid='#99CC99',high = "#FF9900",limits = c(1,80))+
+  labs(title = "T2D")+ylab('')+scale_y_discrete(position = "right")+
+  theme(plot.title = element_text(hjust = 0.5))+scale_size(range = c(2,20),limits=c(1,150))
